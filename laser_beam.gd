@@ -3,9 +3,12 @@ extends RayCast2D
 @export var cast_speed := 7000
 @export var max_length := 1400
 
+@export var new_laser := preload("res://scenes/inst_laser.tscn")
+
 @onready var line = $line
 
 var has_ray = false
+
 
 func _physics_process(delta: float) -> void:
 	target_position.x = move_toward(
@@ -16,21 +19,27 @@ func _physics_process(delta: float) -> void:
 	
 	for child in get_children():
 		if child.get_class() == "RayCast2D":
-			child.position = target_position
+			child.position = get_collision_point()#(self.target_position- self.position)
+			print(child.position)
 	
 	var laser_end_pos := target_position
 	force_raycast_update()
 	if is_colliding():
-		print(get_collision_normal())
 		var collider = get_collider()
 		if collider.has_method("take_damage"):
 			collider.take_damage()
 		if collider.has_method("reflect"):
 			if !has_ray:
+				print("something")
 				has_ray = true
+				var n = new_laser.instantiate()
+				n.position = (self.target_position- self.position)
+				n.rotation = 45
+				self.add_child(n)
 				pass
 		else:
 			if has_ray:
+				has_ray = false
 				#delete ray
 				pass
 			
