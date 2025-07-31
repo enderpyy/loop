@@ -26,6 +26,12 @@ var decel_rate: float = 1.1
 @export
 var health: int = 3
 
+const jump_height = 3.5 * 20
+const jump_time = 1.0
+
+var gravity = 200
+var jump_velocity = 200
+
 func _ready():
 	#initialize state machine
 	state_machine.init()
