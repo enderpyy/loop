@@ -3,7 +3,7 @@ extends state
 @export
 var idle_state: state
 @export
-var jump_state: state
+var fall_state: state
 
 
 
@@ -14,8 +14,13 @@ func init():
 
 func run(delta):
 	print('running')
+	if not parent.is_on_floor():
+		exit(fall_state)
+		return
 	if Input.is_action_just_pressed("jump"):
-		exit(jump_state)
+		parent.velocity.y = -parent.jump_velocity
+		exit(fall_state)
+		return
 	if Input.get_axis("move_left","move_right") != 0:
 		parent.velocity.x = Input.get_axis("move_left","move_right") * parent.move_speed
 	else:

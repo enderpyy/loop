@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://v82u568k057g"]
+[gd_scene load_steps=10 format=3 uid="uid://v82u568k057g"]
 
 [ext_resource type="Texture2D" uid="uid://bko4sjv7vutic" path="res://sprites/characters/guy.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://1okpyut2pmks" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Script" uid="uid://bbycby472n11p" path="res://scripts/player_state_machine.gd" id="2_dqkch"]
 [ext_resource type="Script" uid="uid://bqpux5gnjl7bb" path="res://scripts/idle.gd" id="3_dqkch"]
-[ext_resource type="Script" uid="uid://f78xoo3t0e4k" path="res://scenes/jump_state.gd" id="4_qlg0r"]
 [ext_resource type="Script" uid="uid://47p0oooocw0k" path="res://scenes/walk_state.gd" id="5_tuyoq"]
 [ext_resource type="Script" uid="uid://bbxj5gint4bxw" path="res://scenes/fall_state.gd" id="6_fjrip"]
 [ext_resource type="Script" uid="uid://dk0yh76p4j2q1" path="res://scripts/hurt_state.gd" id="7_smehm"]
@@ -23,22 +22,15 @@ rewind_state = NodePath("player_state_machine/rewind_state")
 [node name="player_state_machine" type="Node" parent="."]
 script = ExtResource("2_dqkch")
 
-[node name="idle" type="Node" parent="player_state_machine" node_paths=PackedStringArray("jump_state", "walk_state", "fall_state")]
+[node name="idle" type="Node" parent="player_state_machine" node_paths=PackedStringArray("walk_state", "fall_state")]
 script = ExtResource("3_dqkch")
-jump_state = NodePath("../jump_state")
 walk_state = NodePath("../walk_state")
 fall_state = NodePath("../fall_state")
 
-[node name="jump_state" type="Node" parent="player_state_machine" node_paths=PackedStringArray("idle_state", "walk_state", "fall_state")]
-script = ExtResource("4_qlg0r")
-idle_state = NodePath("../idle")
-walk_state = NodePath("../walk_state")
-fall_state = NodePath("../fall_state")
-
-[node name="walk_state" type="Node" parent="player_state_machine" node_paths=PackedStringArray("idle_state", "jump_state")]
+[node name="walk_state" type="Node" parent="player_state_machine" node_paths=PackedStringArray("idle_state", "fall_state")]
 script = ExtResource("5_tuyoq")
 idle_state = NodePath("../idle")
-jump_state = NodePath("../jump_state")
+fall_state = NodePath("../fall_state")
 
 [node name="fall_state" type="Node" parent="player_state_machine" node_paths=PackedStringArray("walk_state")]
 script = ExtResource("6_fjrip")

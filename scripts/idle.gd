@@ -1,8 +1,6 @@
 extends state
 
 @export
-var jump_state: state
-@export
 var walk_state: state
 @export
 var fall_state: state
@@ -17,7 +15,9 @@ func run(delta):
 func input(event):
 	super(event)
 	if Input.is_action_just_pressed("jump"):
-		exit(jump_state)
+		parent.velocity.y = -parent.jump_velocity
+		exit(fall_state)
+		return
 	elif Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
 		exit(walk_state)
 	
