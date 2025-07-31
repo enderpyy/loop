@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	var laser_end_pos := target_position
 	force_raycast_update()
 	if is_colliding():
-		print(get_collision_normal())
+		#print(get_collision_normal())
 		var collider = get_collider()
 		if collider.has_method("take_damage"):
 			collider.take_damage()
