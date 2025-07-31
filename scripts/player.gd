@@ -32,6 +32,8 @@ const jump_time = 1.0
 var gravity = 200
 var jump_velocity = 200
 
+
+
 func _ready():
 	#initialize state machine
 	state_machine.init()
