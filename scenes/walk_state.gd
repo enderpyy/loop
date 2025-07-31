@@ -4,7 +4,8 @@ extends state
 var idle_state: state
 @export
 var fall_state: state
-
+@export
+var crouch_state:state
 
 
 
@@ -27,4 +28,6 @@ func run(delta):
 		parent.velocity.x /= parent.decel_rate
 	if abs(parent.velocity.x) <= parent.move_speed / 100:
 		exit(idle_state)
-	
+func input(event):
+	if Input.is_action_just_pressed("move_down"):
+		exit(crouch_state)

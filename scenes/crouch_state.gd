@@ -13,6 +13,8 @@ func init():
 func physics(delta):
 	if Input.get_axis("move_left","move_right") != 0:
 		parent.velocity.x = Input.get_axis("move_left","move_right") * parent.move_speed/decel_factor
+	else:
+		parent.velocity.x /= parent.decel_rate
 
 func input(event):
 	#if timer
