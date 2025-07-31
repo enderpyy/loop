@@ -6,6 +6,7 @@
 size = Vector2(30, 4)
 
 [node name="mirror" type="RigidBody2D"]
+gravity_scale = 1.457
 script = ExtResource("1_5o7h0")
 
 [node name="mirror collision" type="CollisionShape2D" parent="."]

@@ -19,8 +19,12 @@ func _physics_process(delta: float) -> void:
 	
 	for child in get_children():
 		if child.get_class() == "RayCast2D":
-			child.position = get_collision_point()#(self.target_position- self.position)
-			print(child.position)
+			child.position = (line.points[1] - line.points[0])
+			var v0 = line.points[1] - line.points[0]
+			var n = get_collision_normal()
+			var vr = v0 +2 * v0.dot(n)/(n.dot(n))*n
+			child.rotation = vr.angle()
+			print(child.rotation)
 	
 	var laser_end_pos := target_position
 	force_raycast_update()
