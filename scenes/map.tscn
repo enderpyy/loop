@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://d3kxjes5s7eio"]
+[gd_scene load_steps=13 format=4 uid="uid://d3kxjes5s7eio"]
 
 [ext_resource type="Script" uid="uid://caqasbfwkwr1l" path="res://scripts/map.gd" id="1_paxxb"]
 [ext_resource type="Texture2D" uid="uid://bbmxoveyick0u" path="res://sprites/tiles/wall_tiles.png" id="2_gldc4"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bb81054hqo6co" path="res://scenes/beam.tscn" id="4_0cso3"]
 [ext_resource type="Script" uid="uid://cslbw3nrh5x57" path="res://scenes/wall_terrain.gd" id="4_2klcf"]
 [ext_resource type="PackedScene" uid="uid://bu7xlc47rypyu" path="res://scenes/mirror.tscn" id="7_nakos"]
+[ext_resource type="PackedScene" uid="uid://qwb5krefl8nf" path="res://scenes/booty.tscn" id="8_jh32y"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2klcf"]
 
@@ -226,5 +227,9 @@ script = ExtResource("4_2klcf")
 position = Vector2(28, 399)
 
 [node name="mirror" parent="." instance=ExtResource("7_nakos")]
-position = Vector2(276, 240)
+position = Vector2(278, 274)
 rotation = 0.809833
+gravity_scale = 0.0
+
+[node name="Booty" parent="." instance=ExtResource("8_jh32y")]
+position = Vector2(110, 420)

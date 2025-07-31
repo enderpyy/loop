@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://qwb5krefl8nf"]
+
+[ext_resource type="Script" uid="uid://dpjpcyx6oicwq" path="res://scripts/booty.gd" id="1_3enjp"]
+[ext_resource type="Texture2D" uid="uid://d1h3m7pof8kuy" path="res://sprites/pancakes.png" id="2_ndj6d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ndj6d"]
+
+[node name="Booty" type="Area2D"]
+script = ExtResource("1_3enjp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+texture = ExtResource("2_ndj6d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_ndj6d")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
