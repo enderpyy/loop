@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cftqma730xkje"]
+
+[ext_resource type="Texture2D" uid="uid://17dbq4e3s2eb" path="res://sprites/misc/white_particle.png" id="1_2fkrh"]
+[ext_resource type="Script" uid="uid://b3qg8f7f5sjls" path="res://scenes/inst_laser.gd" id="1_sna24"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sna24"]
+particle_flag_disable_z = true
+initial_velocity_max = 38.46
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+collision_mode = 2
+
+[node name="inst_laser" type="RayCast2D"]
+script = ExtResource("1_sna24")
+
+[node name="line" type="Line2D" parent="."]
+modulate = Color(1.5, 0, 0.282, 1)
+self_modulate = Color(1.5, 1, 1, 1)
+points = PackedVector2Array(0, 0, 100, 0)
+width = 4.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(0.999825, 0.204283, 0.22646, 1)
+emitting = false
+texture = ExtResource("1_2fkrh")
+lifetime = 0.33
+process_material = SubResource("ParticleProcessMaterial_sna24")

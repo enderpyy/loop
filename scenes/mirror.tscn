@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu7xlc47rypyu"]
+
+[ext_resource type="Script" uid="uid://b0kuxifcpdh5t" path="res://mirror.gd" id="1_5o7h0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_652kc"]
+size = Vector2(30, 4)
+
+[node name="mirror" type="RigidBody2D"]
+script = ExtResource("1_5o7h0")
+
+[node name="mirror collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_652kc")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-15, 0, 15, 0)
+width = 4.0

@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://v82u568k057g"]
+
+[ext_resource type="Texture2D" uid="uid://bko4sjv7vutic" path="res://sprites/characters/guy.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://1okpyut2pmks" path="res://scripts/player.gd" id="1_qhqgy"]
+[ext_resource type="Script" uid="uid://bbycby472n11p" path="res://scripts/player_state_machine.gd" id="2_dqkch"]
+[ext_resource type="Script" uid="uid://bqpux5gnjl7bb" path="res://scripts/idle.gd" id="3_dqkch"]
+[ext_resource type="Script" uid="uid://f78xoo3t0e4k" path="res://scenes/jump_state.gd" id="4_qlg0r"]
+[ext_resource type="Script" uid="uid://47p0oooocw0k" path="res://scenes/walk_state.gd" id="5_tuyoq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+radius = 6.0
+height = 38.0
+
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("current_state")]
+script = ExtResource("1_qhqgy")
+current_state = NodePath("player_state_machine/idle")
+
+[node name="player_state_machine" type="Node" parent="."]
+script = ExtResource("2_dqkch")
+
+[node name="idle" type="Node" parent="player_state_machine" node_paths=PackedStringArray("jump_state", "walk_state")]
+script = ExtResource("3_dqkch")
+jump_state = NodePath("../jump_state")
+walk_state = NodePath("../walk_state")
+
+[node name="jump_state" type="Node" parent="player_state_machine" node_paths=PackedStringArray("idle_state", "walk_state")]
+script = ExtResource("4_qlg0r")
+idle_state = NodePath("../idle")
+walk_state = NodePath("../walk_state")
+
+[node name="walk_state" type="Node" parent="player_state_machine" node_paths=PackedStringArray("idle_state", "jump_state")]
+script = ExtResource("5_tuyoq")
+idle_state = NodePath("../idle")
+jump_state = NodePath("../jump_state")
+
+[node name="player_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_3vyb7")
+flip_h = true
+
+[node name="player_collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_g2els")
