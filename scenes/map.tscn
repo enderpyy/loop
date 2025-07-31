@@ -227,8 +227,8 @@ script = ExtResource("4_2klcf")
 position = Vector2(28, 399)
 
 [node name="mirror" parent="." instance=ExtResource("7_nakos")]
-position = Vector2(278, 274)
-rotation = 0.809833
+position = Vector2(75, 153)
+rotation = 2.09789
 gravity_scale = 0.0
 
 [node name="Booty" parent="." instance=ExtResource("8_jh32y")]

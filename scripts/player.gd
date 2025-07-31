@@ -61,6 +61,7 @@ func set_health(health):
 	pass
 
 func take_damage():
+	print("ow")
 	if current_state == hurt_state or current_state == rewind_state:
 		return
 	state_machine.switch_state(hurt_state)
