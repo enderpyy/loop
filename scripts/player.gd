@@ -34,6 +34,8 @@ const jump_time = 1.0
 var gravity = 200
 var jump_velocity = 200
 
+
+
 func _ready():
 	sprite.frame = 1
 	
