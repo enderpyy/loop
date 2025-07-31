@@ -4,6 +4,8 @@ extends state
 var walk_state: state
 @export
 var fall_state: state
+@export
+var crouch_state: state
 
 func init():
 	super()
@@ -14,6 +16,8 @@ func run(delta):
 
 func input(event):
 	super(event)
+	if Input.is_action_just_pressed("move_down"):
+		exit(crouch_state)
 	if Input.is_action_just_pressed("jump"):
 		parent.velocity.y = -parent.jump_velocity
 		exit(fall_state)

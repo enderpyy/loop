@@ -7,6 +7,8 @@ extends CharacterBody2D
 var state_machine = $player_state_machine
 @onready
 var sprite = $player_sprite
+@onready
+var animator = $player_sprite/player_animator
 
 #state machine exports
 @export
@@ -33,6 +35,8 @@ var gravity = 200
 var jump_velocity = 200
 
 func _ready():
+	sprite.frame = 1
+	
 	#initialize state machine
 	state_machine.init()
 	

@@ -24,7 +24,6 @@ func _physics_process(delta: float) -> void:
 			var n = get_collision_normal()
 			var vr = v0 +2 * v0.dot(n)/(n.dot(n))*n
 			child.rotation = vr.angle()
-			print(child.rotation)
 	
 	var laser_end_pos := target_position
 	force_raycast_update()
