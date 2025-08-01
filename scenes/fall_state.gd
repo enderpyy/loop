@@ -3,13 +3,12 @@ extends state
 @export
 var walk_state: state
 
-@export
-var gravity: int = 100
 
-func run(delta):
+func physics(delta):
 	super(delta)
 	#down arrow decel + gravity
-	parent.velocity.y += gravity * delta * ( 1 + Input.get_action_strength("move_down"))
+	parent.velocity.y += parent.gravity * delta
+	print(parent.velocity.y)
 	
 	#horizontal movement
 	if Input.get_axis("move_left","move_right") != 0:

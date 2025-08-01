@@ -6,6 +6,7 @@ var width: int = 49
 var height: int = 27
 
 func _ready() -> void:
+	Engine.max_fps = 60
 	signal_bus.booty_grabbed.connect(change_level)
 	
 	for i in range(width):

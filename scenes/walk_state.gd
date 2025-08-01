@@ -9,11 +9,11 @@ var fall_state: state
 
 
 func init():
-	print("walking")
+	#print("walking")
 	super()
 
 func run(delta):
-	print('running')
+	#print('running')
 	if not parent.is_on_floor():
 		exit(fall_state)
 		return

@@ -8,11 +8,11 @@
 [ext_resource type="Script" uid="uid://bbxj5gint4bxw" path="res://scenes/fall_state.gd" id="6_fjrip"]
 [ext_resource type="Script" uid="uid://dk0yh76p4j2q1" path="res://scripts/hurt_state.gd" id="7_smehm"]
 [ext_resource type="Script" uid="uid://diud3uqyfvi0n" path="res://scenes/rewind_state.gd" id="8_ur7pv"]
-[ext_resource type="Script" uid="uid://1e7lrikp3ea" path="res://scenes/crouch_state.gd" id="8_y4r1p"]
-[ext_resource type="Script" uid="uid://d3livhaf1lpbt" path="res://scenes/box_state.gd" id="9_d2wvv"]
+[ext_resource type="Script" path="res://scenes/crouch_state.gd" id="8_y4r1p"]
+[ext_resource type="Script" path="res://scenes/box_state.gd" id="9_d2wvv"]
 
-[sub_resource type="Animation" id="Animation_y4r1p"]
-resource_name = "box"
+[sub_resource type="Animation" id="Animation_d2wvv"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -26,8 +26,8 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_d2wvv"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_y4r1p"]
+resource_name = "box"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

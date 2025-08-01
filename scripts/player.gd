@@ -28,12 +28,17 @@ var decel_rate: float = 1.1
 @export
 var health: int = 3
 
-const jump_height = 3.5 * 20
-const jump_time = 1.0
+# SET JUMP HEIGHT AND TIME
+const jump_height := 3 * 20 # in pixels
+const jump_time := 0.8 # in seconds
 
-var gravity = 200
-var jump_velocity = 200
+var gravity := 2 * jump_height / pow(jump_time/2, 2)
+var jump_velocity := gravity * (jump_time/2)
 
+
+func _input(e):
+	if Input.is_action_just_pressed("click"):
+		pass
 
 
 func _ready():
@@ -61,8 +66,6 @@ func _physics_process(delta: float) -> void:
 			#past_positions = []
 		#	past_frames = []
 			can_rewind = false
-	
-	
 
 
 func start_rewind():
