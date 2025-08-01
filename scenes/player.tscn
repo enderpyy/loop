@@ -66,10 +66,11 @@ walk_state = NodePath("../walk_state")
 fall_state = NodePath("../fall_state")
 crouch_state = NodePath("../crouch state")
 
-[node name="walk_state" type="Node" parent="player_state_machine" node_paths=PackedStringArray("idle_state", "fall_state")]
+[node name="walk_state" type="Node" parent="player_state_machine" node_paths=PackedStringArray("idle_state", "fall_state", "crouch_state")]
 script = ExtResource("5_tuyoq")
 idle_state = NodePath("../idle")
 fall_state = NodePath("../fall_state")
+crouch_state = NodePath("../crouch state")
 
 [node name="fall_state" type="Node" parent="player_state_machine" node_paths=PackedStringArray("walk_state")]
 script = ExtResource("6_fjrip")
