@@ -15,5 +15,5 @@ func _ready() -> void:
 var t = 0.0
 func _process(delta: float) -> void:
 	t += delta
-	self.rotation_degrees = 90 + 15*sin(t)
+	self.rotation_degrees = 90 + 2*sin(t)
 	global_vars.counter = 0

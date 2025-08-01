@@ -227,12 +227,29 @@ gravity_scale = 0.0
 width = 50
 
 [node name="mirror2" parent="." instance=ExtResource("5_2y5yt")]
-position = Vector2(390, 271)
-rotation = 0.809833
+position = Vector2(390, 274)
+rotation = -0.785398
 gravity_scale = 0.0
-angular_velocity = 0.523599
 angular_damp_mode = 1
-width = 100
+width = 50
+
+[node name="mirror3" parent="." instance=ExtResource("5_2y5yt")]
+position = Vector2(386, 202)
+rotation = -0.785398
+gravity_scale = 0.0
+width = 50
 
 [node name="beam" parent="." instance=ExtResource("6_2os1m")]
 position = Vector2(280, 110)
+
+[node name="mirror4" parent="." instance=ExtResource("5_2y5yt")]
+position = Vector2(491, 202)
+rotation = 0.785398
+gravity_scale = 0.0
+width = 50
+
+[node name="mirror5" parent="." instance=ExtResource("5_2y5yt")]
+position = Vector2(505, 283)
+rotation = -0.445059
+gravity_scale = 0.0
+width = 100
