@@ -7,8 +7,10 @@ var walk_state: state
 func physics(delta):
 	super(delta)
 	#down arrow decel + gravity
-	parent.velocity.y += parent.gravity * delta
-	print(parent.velocity.y)
+	if parent.velocity.y < parent.top_speed_descent:
+		parent.velocity.y += parent.gravity * delta * (0.8 if parent.velocity.y > 0 else 1)
+	if parent.velocity.y < 0 and Input.is_action_just_released('jump'):
+		parent.velocity.y *= 0.8
 	
 	#horizontal movement
 	if Input.get_axis("move_left","move_right") != 0:

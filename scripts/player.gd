@@ -18,22 +18,23 @@ var hurt_state: state
 @export
 var rewind_state: state
 
-#standard move speeds
-@export
-var move_speed: int = 100
-@export
-var decel_rate: float = 1.1
+# SET MOVE SPEED
+const move_speed: int = 100
+const decel_rate: float = 1.5
 
 #unused as of now
 @export
 var health: int = 3
 
 # SET JUMP HEIGHT AND TIME
-const jump_height := 3 * 20 # in pixels
-const jump_time := 0.8 # in seconds
+const jump_height := 45 # in pixels
+const jump_time := 0.7 # in seconds
+const top_speed_descent := 250 # in pixels/second
 
+# GRAVITY & VELOCITY CALCULATED
 var gravity := 2 * jump_height / pow(jump_time/2, 2)
 var jump_velocity := gravity * (jump_time/2)
+
 
 
 func _input(e):
