@@ -221,10 +221,18 @@ script = ExtResource("3_15mv3")
 position = Vector2(110, 420)
 
 [node name="mirror" parent="." instance=ExtResource("5_2y5yt")]
-position = Vector2(278, 274)
-rotation = 0.809833
-scale = Vector2(1, 1)
+position = Vector2(279, 274)
+rotation = 0.785398
 gravity_scale = 0.0
+width = 50
+
+[node name="mirror2" parent="." instance=ExtResource("5_2y5yt")]
+position = Vector2(390, 271)
+rotation = 0.809833
+gravity_scale = 0.0
+angular_velocity = 0.523599
+angular_damp_mode = 1
+width = 100
 
 [node name="beam" parent="." instance=ExtResource("6_2os1m")]
 position = Vector2(280, 110)

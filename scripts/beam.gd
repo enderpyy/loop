@@ -9,10 +9,11 @@ var min_rot := 90
 var max_rot := 90
 
 func _ready() -> void:
-	laser.is_casting = true
+	self.rotation_degrees = 90
 	
 	
 var t = 0.0
 func _process(delta: float) -> void:
 	t += delta
-	self.rotation_degrees = 90 + 30*sin(t)
+	self.rotation_degrees = 90 + 15*sin(t)
+	global_vars.counter = 0

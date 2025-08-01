@@ -5,7 +5,10 @@ var width: int = 49
 @export
 var height: int = 27
 
+
+
 func _ready() -> void:
+	global_vars.global_instancing = $global_instancing
 	Engine.max_fps = 60
 	signal_bus.booty_grabbed.connect(change_level)
 	
@@ -17,8 +20,8 @@ var current_level = 0
 
 func change_level():
 	current_level += 1
-	get_child(0).position = Vector2(28, 399)
-	get_child(1).queue_free()
+	get_child(1).position = Vector2(28, 399)
+	get_child(2).queue_free()
 	if current_level >= len(level_uids):
 		return
 	var n = load(level_uids[current_level])
