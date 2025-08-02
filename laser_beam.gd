@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 		line.points[1].x = global_position.distance_to(laser_end_pos)
 		
 		var collider = get_collider()
+		if not collider: return
 		if collider.has_method("take_damage"):
 			collider.take_damage()
 		if collider is reflective:

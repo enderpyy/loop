@@ -16,5 +16,4 @@ texture = ExtResource("2_ndj6d")
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_ndj6d")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
