@@ -9,6 +9,10 @@ var state_machine = $player_state_machine
 var sprite = $player_sprite
 @onready
 var animator = $player_sprite/player_animator
+@onready
+var player_collision = $player_collision
+@onready
+var box_collision = $box_collision
 
 #state machine exports
 @export
@@ -81,3 +85,9 @@ func take_damage():
 	if current_state == hurt_state or current_state == rewind_state:
 		return
 	state_machine.switch_state(hurt_state)
+
+#box state
+func box():
+	animator.play("box")
+	player_collision.disabled = true
+	box_collision.disabled = false

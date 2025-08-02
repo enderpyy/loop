@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://v82u568k057g"]
+[gd_scene load_steps=16 format=3 uid="uid://v82u568k057g"]
 
 [ext_resource type="Texture2D" uid="uid://bko4sjv7vutic" path="res://sprites/characters/guy.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://1okpyut2pmks" path="res://scripts/player.gd" id="1_qhqgy"]
@@ -51,6 +51,9 @@ _data = {
 radius = 6.0
 height = 38.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4r1p"]
+size = Vector2(24, 18)
+
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("current_state", "hurt_state", "rewind_state")]
 script = ExtResource("1_qhqgy")
 current_state = NodePath("player_state_machine/idle")
@@ -90,8 +93,10 @@ idle_state = NodePath("../idle")
 box_state = NodePath("../box_state")
 decel_factor = 2
 
-[node name="box_state" type="Node" parent="player_state_machine"]
+[node name="box_state" type="Node" parent="player_state_machine" node_paths=PackedStringArray("crouch_state", "jump_state")]
 script = ExtResource("9_d2wvv")
+crouch_state = NodePath("../crouch state")
+jump_state = NodePath("../fall_state")
 
 [node name="player_sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_3vyb7")
@@ -105,3 +110,10 @@ libraries = {
 
 [node name="player_collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_g2els")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="box_collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_y4r1p")
+disabled = true
