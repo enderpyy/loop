@@ -1,11 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3kxjes5s7eio"]
+[gd_scene load_steps=5 format=3 uid="uid://d3kxjes5s7eio"]
 
 [ext_resource type="Script" uid="uid://caqasbfwkwr1l" path="res://scripts/map.gd" id="1_paxxb"]
+[ext_resource type="AudioStream" uid="uid://dcp4w7mekxcfj" path="res://Gaelic.mp3" id="2_0cso3"]
 [ext_resource type="PackedScene" uid="uid://cpdg47fd4xuo6" path="res://scenes/testing_level.tscn" id="3_0cso3"]
 [ext_resource type="PackedScene" uid="uid://v82u568k057g" path="res://scenes/player.tscn" id="3_gldc4"]
 
 [node name="map" type="Node2D"]
 script = ExtResource("1_paxxb")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_0cso3")
+autoplay = true
+parameters/looping = true
 
 [node name="global_instancing" type="Node2D" parent="."]
 

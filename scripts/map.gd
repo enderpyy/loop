@@ -23,8 +23,8 @@ func _ready() -> void:
 func change_level():
 	print(current_level)
 	await get_tree().create_timer(1).timeout
-	get_child(1).position = Vector2(28, 399)
-	get_child(2).queue_free()
+	get_child(2).position = Vector2(28, 399)
+	get_child(3).queue_free()
 	if current_level >= len(levels):
 		return
 	var n = load(levels_dir + levels[current_level])
