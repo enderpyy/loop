@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ym1k1u36n66y"]
+[gd_scene load_steps=5 format=3 uid="uid://ym1k1u36n66y"]
 
 [ext_resource type="Script" uid="uid://hc1gy77yn0b8" path="res://laser_beam.gd" id="1_ierl2"]
 [ext_resource type="Texture2D" uid="uid://17dbq4e3s2eb" path="res://sprites/misc/white_particle.png" id="2_icd7v"]
@@ -6,6 +6,16 @@
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hl8vi"]
 particle_flag_disable_z = true
 initial_velocity_max = 38.46
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+collision_mode = 2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ierl2"]
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 38.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.5
 scale_max = 0.5
@@ -24,10 +34,17 @@ width = 4.0
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-visible = false
+[node name="emit_particles" type="GPUParticles2D" parent="."]
 modulate = Color(0.999825, 0.204283, 0.22646, 1)
-emitting = false
 texture = ExtResource("2_icd7v")
-lifetime = 0.33
+lifetime = 1.13
+speed_scale = 1.97
 process_material = SubResource("ParticleProcessMaterial_hl8vi")
+
+[node name="collision_particles" type="GPUParticles2D" parent="."]
+modulate = Color(0.999825, 0.204283, 0.22646, 1)
+position = Vector2(100, 0)
+texture = ExtResource("2_icd7v")
+lifetime = 1.13
+speed_scale = 1.97
+process_material = SubResource("ParticleProcessMaterial_ierl2")

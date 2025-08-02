@@ -5,26 +5,31 @@ var width: int = 49
 @export
 var height: int = 27
 
+var levels_dir = 'res://scenes/levels/'
+var levels = ResourceLoader.list_directory(levels_dir)
 
+@export var start_at_level := 0
+var current_level = start_at_level
 
 func _ready() -> void:
+	print(levels)
 	global_vars.global_instancing = $global_instancing
 	Engine.max_fps = 60
 	signal_bus.booty_grabbed.connect(change_level)
-	
-	for i in range(width):
-		pass
+	change_level()
 
-var level_uids = ['uid://bwjn2t0flkaxn', 'uid://bq0dtmdbmhucb']
-var current_level = 0
+
 
 func change_level():
-	current_level += 1
-	get_child(1).position = Vector2(28, 399)
-	get_child(2).queue_free()
-	if current_level >= len(level_uids):
+	print(current_level)
+	await get_tree().create_timer(1).timeout
+	get_child(2).position = Vector2(28, 399)
+	get_child(3).queue_free()
+	if current_level >= len(levels):
 		return
-	var n = load(level_uids[current_level])
+	var n = load(levels_dir + levels[current_level])
 	var b = n.instantiate()
 	add_child(b)
+	current_level += 1
+	
 	

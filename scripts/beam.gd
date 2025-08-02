@@ -4,9 +4,11 @@ extends Area2D
 var laser = $laser_beam
 
 @export
-var min_rot := 90
+var rot_pivot := 90
 @export
-var max_rot := 90
+var amp := 2.0
+@export
+var freq := 1.0
 
 func _ready() -> void:
 	self.rotation_degrees = 90
@@ -15,5 +17,5 @@ func _ready() -> void:
 var t = 0.0
 func _process(delta: float) -> void:
 	t += delta
-	self.rotation_degrees = 90 + 2*sin(t)
+	self.rotation_degrees = rot_pivot + amp*sin(freq*t)
 	global_vars.counter = 0

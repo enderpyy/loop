@@ -13,7 +13,7 @@ func init():
 	#print("walking")
 	super()
 
-func run(delta):
+func physics(delta):
 	#print('running')
 	if not parent.is_on_floor():
 		exit(fall_state)
@@ -23,7 +23,7 @@ func run(delta):
 		exit(fall_state)
 		return
 	if Input.get_axis("move_left","move_right") != 0:
-		parent.velocity.x = Input.get_axis("move_left","move_right") * parent.move_speed
+		parent.velocity.x = 60 * delta * Input.get_axis("move_left","move_right") * parent.move_speed
 	else:
 		parent.velocity.x /= parent.decel_rate
 	if abs(parent.velocity.x) <= parent.move_speed / 100:
