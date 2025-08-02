@@ -19,7 +19,7 @@ var hurt_state: state
 var rewind_state: state
 
 # SET MOVE SPEED
-const move_speed: int = 100
+const move_speed: int = 70
 const decel_rate: float = 1.5
 
 #unused as of now
@@ -27,8 +27,8 @@ const decel_rate: float = 1.5
 var health: int = 3
 
 # SET JUMP HEIGHT AND TIME
-const jump_height := 45 # in pixels
-const jump_time := 0.7 # in seconds
+const jump_height := 50 # in pixels
+const jump_time := 0.8 # in seconds
 const top_speed_descent := 250 # in pixels/second
 
 # GRAVITY & VELOCITY CALCULATED
